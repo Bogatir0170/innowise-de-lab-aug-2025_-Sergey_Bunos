@@ -1,1 +1,1 @@
-# innowise-de-lab-jun-2026_-Sergey_Bunos
+# innowise-de-lab-jun-2026_Sergey_Bunos
