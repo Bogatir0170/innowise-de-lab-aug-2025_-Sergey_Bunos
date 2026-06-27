@@ -1,0 +1,13 @@
+Внешние ключи создают логические ссылки между таблицами, поддерживая ссылочную целостность данных.
+countries — Нет внешних ключей (базовый справочник верхнего уровня).
+cities — country_id (ссылается на countries.country_id).
+shops — city_id (ссылается на cities.city_id).
+employees — shop_id (ссылается на shops.shop_id).
+categories — Нет внешних ключей (базовый номенклатурный справочник).
+products — category_id (ссылается на categories.category_id).
+customers — Нет внешних ключей (или city_id, если фиксируется город регистрации).
+sales (Транзакции) — Содержит наибольшее количество связей:
+product_id (связывает с таблицей products).
+employee_id (связывает с таблицей employees).
+shop_id (связывает с таблицей shops).
+customer_id (связывает с таблицей customers).
