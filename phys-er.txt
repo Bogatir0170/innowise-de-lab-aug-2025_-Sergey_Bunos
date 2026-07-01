@@ -1,0 +1,51 @@
+       [categories]
+       +----------------------------+
+
+       | PK | category_id (INT)     |
+       +----------------------------+
+
+       | NN | category_name (VARCHAR)|
+       +----------------------------+
+                     ||
+                     | (1:M)
+                     <-
+                 [products]
+                 +----------------------------+
+
+                 | PK | product_id (INT)     |
+                 +----------------------------+
+
+                 | FK | category_id (INT)    |
+                 | NN | product_name (VARCHAR)|
+                 | NN | unit_price (DECIMAL)  | -- CHECK (>0)
+                 +----------------------------+
+                               ||
+                               | (1:M)
+                               <-
+                            [sales]
+         +--------------------------------------------+
+
+         | PK | sale_id (INT)                         |
+         +--------------------------------------------+
+
+         | FK | product_id (INT)                      |
+         | FK | employee_id (INT)                     |
+         | FK | shop_id (INT)                         |
+         | FK | customer_id (INT)                     |
+         | NN | quantity (INT)                        | -- CHECK (>0)
+         | NN | sale_date (TIMESTAMP)                 |
+         +--------------------------------------------+
+           ^                ^               ^
+
+           | (M:1)          | (M:1)         | (M:1)
+           ||               ||              ||
+      [customers]      [employees]       [shops]
+  +------------------+ +---------------+ +---------------+
+
+  | PK | customer_id | | PK |employee_id| | PK | shop_id  |
+  +------------------+ +---------------+ +---------------+
+
+  | NN | first_name  | | FK | shop_id  | | FK | city_id  |
+  | NN | last_name   | | NN |first_name| | NN | shop_code|
+  +------------------+ | NN |last_name | +---------------+
+                       +---------------+
